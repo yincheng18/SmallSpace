@@ -16,7 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.graduate.SmallSpace.MainActivity;
+import com.graduate.SmallSpace.activity.MainActivity;
 import com.graduate.SmallSpace.R;
 import com.graduate.SmallSpace.base.BaseActivity;
 

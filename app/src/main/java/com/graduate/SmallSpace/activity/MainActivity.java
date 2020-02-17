@@ -1,8 +1,9 @@
-package com.graduate.SmallSpace;
+package com.graduate.SmallSpace.activity;
 
 import android.os.Bundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.graduate.SmallSpace.R;
 import com.graduate.SmallSpace.base.BaseActivity;
 
 import androidx.navigation.NavController;
