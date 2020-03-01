@@ -31,7 +31,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
 
         //沉浸式状态栏
         if (Build.VERSION.SDK_INT >= 21) {
@@ -43,11 +42,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         }
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
-
-        initView();
     }
 
-    private void initView() {
+    @Override
+    protected void initView() {
         infoIv = findViewById(R.id.infoIv);
         infoIv.setSelected(true);
         infoIv.setOnClickListener(this);
@@ -110,6 +108,11 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 }
             }
         });
+    }
+
+    @Override
+    protected int layout() {
+        return R.layout.activity_login;
     }
 
     @Override
