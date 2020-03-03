@@ -2,6 +2,7 @@ package com.graduate.SmallSpace.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 
@@ -22,6 +23,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
     protected void initView() {
         Button loginOutBtn=findViewById(R.id.loginOutBtn);
         loginOutBtn.setOnClickListener(this);
+
     }
 
     @Override

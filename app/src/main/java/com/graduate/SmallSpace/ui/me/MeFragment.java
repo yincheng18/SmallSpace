@@ -16,38 +16,26 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.graduate.SmallSpace.R;
 import com.graduate.SmallSpace.activity.SettingActivity;
+import com.graduate.SmallSpace.base.BaseFragment;
 
-public class MeFragment extends Fragment implements View.OnClickListener {
-
-    private MeViewModel meViewModel;
+public class MeFragment extends BaseFragment implements View.OnClickListener {
 
     private LinearLayout settingLL;
-
-    private View root;
-
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        meViewModel =
-                ViewModelProviders.of(this).get(MeViewModel.class);
-        root = inflater.inflate(R.layout.fragment_me, container, false);
-        meViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-
-            }
-        });
-        return root;
-    }
 
     @Override
     public void onStart() {
         super.onStart();
-        initView();
     }
 
-    private void initView() {
-        settingLL = root.findViewById(R.id.settingLL);
+    @Override
+    protected void initView() {
+        settingLL = view.findViewById(R.id.settingLL);
         settingLL.setOnClickListener(this);
+    }
+
+    @Override
+    protected int layout() {
+        return R.layout.fragment_me;
     }
 
     @Override

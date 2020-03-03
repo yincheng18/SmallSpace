@@ -1,35 +1,63 @@
 package com.graduate.SmallSpace.ui.home;
 
-import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
-import androidx.annotation.Nullable;
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
-
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.graduate.SmallSpace.R;
+import com.graduate.SmallSpace.base.BaseFragment;
+import com.graduate.SmallSpace.utils.ToastUtil;
 
-public class HomeFragment extends Fragment {
+import java.util.ArrayList;
+import java.util.List;
 
-    private HomeViewModel homeViewModel;
+public class HomeFragment extends BaseFragment implements View.OnClickListener {
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                ViewModelProviders.of(this).get(HomeViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
-        final TextView textView = root.findViewById(R.id.text_home);
-        homeViewModel.getText().observe(this, new Observer<String>() {
+    private ListView listView;
+
+    private FloatingActionButton floatingBtn;
+
+    @Override
+    protected void initView() {
+        listView = view.findViewById(R.id.listView);
+        floatingBtn=view.findViewById(R.id.floatingBtn);
+        floatingBtn.setOnClickListener(this);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        initListView();
+    }
+
+    //初始化listview
+    private void initListView() {
+        final List<String> list = new ArrayList();
+        list.add("Android开发简单语法");
+        ArrayAdapter<String> arrayAdapter =
+                new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, list);
+        listView.setAdapter(arrayAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                ToastUtil.showShortToast(list.get(i));
             }
         });
-        return root;
+    }
+
+    @Override
+    protected int layout() {
+        return R.layout.fragment_home;
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.floatingBtn:
+                ToastUtil.showShortToast("点击了添加");
+                break;
+        }
     }
 }

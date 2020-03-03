@@ -3,6 +3,7 @@ package com.graduate.SmallSpace.base;
 import android.app.Application;
 import android.content.Context;
 
+import com.graduate.SmallSpace.utils.LogUtils;
 import com.raizlabs.android.dbflow.config.FlowManager;
 
 public class BaseApp extends Application {
@@ -14,5 +15,6 @@ public class BaseApp extends Application {
         super.onCreate();
         mCtx=getApplicationContext();
         FlowManager.init(this);
+        LogUtils.isDebug(true);
     }
 }
