@@ -2,14 +2,14 @@ package com.graduate.SmallSpace.activity;
 
 import android.os.Bundle;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.graduate.SmallSpace.R;
-import com.graduate.SmallSpace.base.BaseActivity;
-
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.graduate.SmallSpace.R;
+import com.graduate.SmallSpace.base.BaseActivity;
 
 public class MainActivity extends BaseActivity {
 

@@ -3,7 +3,7 @@ package com.graduate.SmallSpace.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.graduate.SmallSpace.base.BaseApp;
+import com.graduate.SmallSpace.base.App;
 
 public class SPUtils {
 
@@ -15,7 +15,7 @@ public class SPUtils {
      * @return true 成功
      */
     public static boolean clear(String key) {
-        SP = BaseApp.mCtx.getSharedPreferences(BaseApp.mCtx.getPackageName(), Context.MODE_PRIVATE);
+        SP = App.mCtx.getSharedPreferences(App.mCtx.getPackageName(), Context.MODE_PRIVATE);
         return SP.edit().remove(key).commit();
     }
 
@@ -26,7 +26,7 @@ public class SPUtils {
      * @param value value
      */
     public static boolean put(String key, String value) {
-        SP = BaseApp.mCtx.getSharedPreferences(BaseApp.mCtx.getPackageName(), Context.MODE_PRIVATE);
+        SP = App.mCtx.getSharedPreferences(App.mCtx.getPackageName(), Context.MODE_PRIVATE);
         return SP.edit().putString(key, value).commit();
     }
 
@@ -38,7 +38,7 @@ public class SPUtils {
      * @return value
      */
     public static String get(String key, String defValue) {
-        SP = BaseApp.mCtx.getSharedPreferences(BaseApp.mCtx.getPackageName(), Context.MODE_PRIVATE);
+        SP = App.mCtx.getSharedPreferences(App.mCtx.getPackageName(), Context.MODE_PRIVATE);
         return SP.getString(key, defValue);
     }
 
@@ -49,7 +49,7 @@ public class SPUtils {
      * @param value value
      */
     public static boolean put(String key, boolean value) {
-        SP = BaseApp.mCtx.getSharedPreferences(BaseApp.mCtx.getPackageName(), Context.MODE_PRIVATE);
+        SP = App.mCtx.getSharedPreferences(App.mCtx.getPackageName(), Context.MODE_PRIVATE);
         return SP.edit().putBoolean(key, value).commit();
     }
 
@@ -61,7 +61,7 @@ public class SPUtils {
      * @return value
      */
     public static boolean get(String key, boolean defValue) {
-        SP = BaseApp.mCtx.getSharedPreferences(BaseApp.mCtx.getPackageName(), Context.MODE_PRIVATE);
+        SP = App.mCtx.getSharedPreferences(App.mCtx.getPackageName(), Context.MODE_PRIVATE);
         return SP.getBoolean(key, defValue);
     }
 
@@ -72,7 +72,7 @@ public class SPUtils {
      * @param value value
      */
     public static boolean put(String key, int value) {
-        SP = BaseApp.mCtx.getSharedPreferences(BaseApp.mCtx.getPackageName(), Context.MODE_PRIVATE);
+        SP = App.mCtx.getSharedPreferences(App.mCtx.getPackageName(), Context.MODE_PRIVATE);
         return SP.edit().putInt(key, value).commit();
     }
 
@@ -84,7 +84,7 @@ public class SPUtils {
      * @return value
      */
     public static int get(String key, int defValue) {
-        SP = BaseApp.mCtx.getSharedPreferences(BaseApp.mCtx.getPackageName(), Context.MODE_PRIVATE);
+        SP = App.mCtx.getSharedPreferences(App.mCtx.getPackageName(), Context.MODE_PRIVATE);
         return SP.getInt(key, defValue);
     }
 
@@ -95,7 +95,7 @@ public class SPUtils {
      * @param value value
      */
     public static boolean put(String key, long value) {
-        SP = BaseApp.mCtx.getSharedPreferences(BaseApp.mCtx.getPackageName(), Context.MODE_PRIVATE);
+        SP = App.mCtx.getSharedPreferences(App.mCtx.getPackageName(), Context.MODE_PRIVATE);
         return SP.edit().putLong(key, value).commit();
     }
 
@@ -107,7 +107,7 @@ public class SPUtils {
      * @return value
      */
     public static long get(String key, long defValue) {
-        SP = BaseApp.mCtx.getSharedPreferences(BaseApp.mCtx.getPackageName(), Context.MODE_PRIVATE);
+        SP = App.mCtx.getSharedPreferences(App.mCtx.getPackageName(), Context.MODE_PRIVATE);
         return SP.getLong(key, defValue);
     }
 
@@ -116,7 +116,7 @@ public class SPUtils {
      * @param context
      */
     public static void clear(Context context) {
-        SharedPreferences preferences = context.getSharedPreferences(BaseApp.mCtx.getPackageName(), Context.MODE_PRIVATE);
+        SharedPreferences preferences = context.getSharedPreferences(App.mCtx.getPackageName(), Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.clear();
         editor.commit();

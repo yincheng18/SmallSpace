@@ -1,0 +1,78 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 29
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
+    implementation 'androidx.navigation:navigation-fragment:2.2.1'
+    implementation 'androidx.navigation:navigation-ui:2.2.1'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.annotation:annotation:1.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    // butterknife
+    //引入ButterKnife
+    api 'com.jakewharton:butterknife:10.0.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
+
+//    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    // retrofit 2
+    api 'com.squareup.retrofit2:retrofit:2.8.1'
+    api 'com.squareup.retrofit2:converter-gson:2.4.0'
+    api 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
+    api 'com.squareup.okhttp3:logging-interceptor:3.10.0'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.3'
+    // RxJava 2
+    api 'io.reactivex.rxjava2:rxjava:2.2.12'
+    api 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    // RxLifecycle
+    api 'com.trello.rxlifecycle2:rxlifecycle:2.2.1'
+    api 'com.trello.rxlifecycle2:rxlifecycle-components:2.2.1'
+    api "com.trello.rxlifecycle2:rxlifecycle-android:2.2.1"
+    api 'com.github.tbruyelle:rxpermissions:0.10.2'
+
+    // RxCache
+    api 'com.github.VictorAlbertos.RxCache:runtime:1.8.3-2.x'
+    api 'com.github.VictorAlbertos.Jolyglot:gson:0.0.4'
+    // dagger2
+    api 'com.google.dagger:dagger:2.16'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.16'
+    // EventBus
+    api 'org.simple:androideventbus:1.0.5.1'
+    api 'com.github.ybq:Android-SpinKit:1.2.0'
+
+    api 'com.orhanobut:logger:2.2.0'
+
+    api 'com.jakewharton.timber:timber:4.7.0'
+
+    api "com.github.bumptech.glide:glide:4.7.1"
+    annotationProcessor "com.github.bumptech.glide:compiler:4.7.1"
+    api "com.github.bumptech.glide:okhttp3-integration:4.6.1"
+
+    api "com.android.support:multidex:1.0.3"
+}

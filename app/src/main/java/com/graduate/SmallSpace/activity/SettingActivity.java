@@ -2,15 +2,13 @@ package com.graduate.SmallSpace.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 
 import com.graduate.SmallSpace.R;
 import com.graduate.SmallSpace.base.BaseActivity;
-import com.graduate.SmallSpace.db.User;
 import com.graduate.SmallSpace.ui.login.LoginActivity;
-import com.raizlabs.android.dbflow.sql.language.SQLite;
+
 
 public class SettingActivity extends BaseActivity implements View.OnClickListener {
 
