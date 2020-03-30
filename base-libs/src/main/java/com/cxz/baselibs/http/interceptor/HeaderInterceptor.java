@@ -33,13 +33,12 @@ public class HeaderInterceptor implements Interceptor {
     public Response intercept(Chain chain) throws IOException {
         Request request = chain.request();
         Request.Builder requestBuilder = request.newBuilder();
-        String domain = request.url().host();
 
         requestBuilder.addHeader("Content-type", "application/json; charset=utf-8");
 
         // 将 Cookie 设置在 header 中
-        String cookie = SPUtils.getInstance().getString(domain);
-        if (!TextUtils.isEmpty(domain) && !TextUtils.isEmpty(cookie)) {
+        String cookie = SPUtils.getInstance().getString(HttpConstant.COOKIE_NAME);
+        if (!TextUtils.isEmpty(cookie)) {
             requestBuilder.addHeader(HttpConstant.COOKIE_NAME, cookie);
         }
 

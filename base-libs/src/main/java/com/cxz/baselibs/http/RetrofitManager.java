@@ -4,7 +4,6 @@ import com.cxz.baselibs.BuildConfig;
 import com.cxz.baselibs.app.BaseApp;
 import com.cxz.baselibs.http.cert.TrustAllCerts;
 import com.cxz.baselibs.http.cert.TrustAllHostnameVerifier;
-import com.cxz.baselibs.http.interceptor.CacheInterceptor;
 import com.cxz.baselibs.http.interceptor.CookieInterceptor;
 import com.cxz.baselibs.http.interceptor.HeaderInterceptor;
 
@@ -142,10 +141,10 @@ public class RetrofitManager {
                 .addInterceptor(httpLoggingInterceptor)
                 .addInterceptor(new HeaderInterceptor())
                 .addInterceptor(new CookieInterceptor())
-                .addInterceptor(new CacheInterceptor())
+//                .addInterceptor(new CacheInterceptor())
                 .sslSocketFactory(createSSLSocketFactory(), new TrustAllCerts())// 创建一个证书对象
                 .hostnameVerifier(new TrustAllHostnameVerifier()) // 校验名称,这个对象就是信任所有的主机,也就是信任所有https的请求
-                .cache(cache) // 添加缓存
+//                .cache(cache) // 添加缓存
                 .connectTimeout(DEFAULT_TIME_OUT, TimeUnit.SECONDS)
                 .readTimeout(DEFAULT_TIME_OUT, TimeUnit.SECONDS)
                 .writeTimeout(DEFAULT_TIME_OUT, TimeUnit.SECONDS)
