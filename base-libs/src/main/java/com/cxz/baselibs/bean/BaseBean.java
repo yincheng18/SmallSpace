@@ -8,49 +8,34 @@ import java.io.Serializable;
  * @desc
  */
 public class BaseBean<T> implements Serializable {
-    private int code;
-    private String message;
-    private T result;
 
-    public BaseBean() {
+    private int httpCode;
+
+    private String httpMessage;
+
+    private T data;
+
+    public int getHttpCode() {
+        return httpCode;
     }
 
-    public BaseBean(int errorCode, String errorMsg, T data) {
-        this.code = errorCode;
-        this.message = errorMsg;
-        this.result = data;
+    public void setHttpCode(int httpCode) {
+        this.httpCode = httpCode;
     }
 
-    public int getCode() {
-        return code;
+    public String getHttpMessage() {
+        return httpMessage;
     }
 
-    public void setCode(int code) {
-        this.code = code;
+    public void setHttpMessage(String httpMessage) {
+        this.httpMessage = httpMessage;
     }
 
-    public String getMessage() {
-        return message;
+    public T getData() {
+        return data;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public T getResult() {
-        return result;
-    }
-
-    public void setResult(T result) {
-        this.result = result;
-    }
-
-    @Override
-    public String toString() {
-        return "BaseBean{" +
-                "errorCode=" + code +
-                ", errorMsg='" + message + '\'' +
-                ", data=" + result +
-                '}';
+    public void setData(T data) {
+        this.data = data;
     }
 }

@@ -1,6 +1,6 @@
 package com.graduate.SmallSpace.retrofit;
 
-import com.cxz.baselibs.bean.BaseBean;
+import com.graduate.SmallSpace.bean.WeiXinBean;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
@@ -13,5 +13,5 @@ public interface SmallSpaceService {
      * ping百度
      */
     @GET("todayVideo")
-    Observable<BaseBean> pingBaiDu();
+    Observable<WeiXinBean> pingBaiDu();
 }

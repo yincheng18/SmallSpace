@@ -2,9 +2,9 @@ package com.graduate.SmallSpace.ui.login;
 
 import android.annotation.SuppressLint;
 
-import com.cxz.baselibs.bean.BaseBean;
 import com.cxz.baselibs.mvp.BasePresenter;
 import com.cxz.baselibs.rx.BaseObserver;
+import com.graduate.SmallSpace.bean.WeiXinBean;
 
 
 public class LoginPresenter extends BasePresenter<LoginContract.Model, LoginContract.View>
@@ -19,11 +19,11 @@ public class LoginPresenter extends BasePresenter<LoginContract.Model, LoginCont
     @Override
     public void getBaiDu() {
         getModel().getBaiDuInfo()
-                .compose(getView().<BaseBean>bindToLife())
-                .subscribe(new BaseObserver<BaseBean>(getView()) {
+                .compose(getView().<WeiXinBean>bindToLife())
+                .subscribe(new BaseObserver<WeiXinBean>(getView()) {
 
                     @Override
-                    protected void onSuccess(BaseBean baseBean) {
+                    protected void onSuccess(WeiXinBean baseBean) {
                         getView().showMsg(baseBean.getMessage());
                     }
                 });

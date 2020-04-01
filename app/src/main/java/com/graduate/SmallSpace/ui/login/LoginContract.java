@@ -1,10 +1,10 @@
 package com.graduate.SmallSpace.ui.login;
 
 
-import com.cxz.baselibs.bean.BaseBean;
 import com.cxz.baselibs.mvp.IModel;
 import com.cxz.baselibs.mvp.IPresenter;
 import com.cxz.baselibs.mvp.IView;
+import com.graduate.SmallSpace.bean.WeiXinBean;
 
 import io.reactivex.Observable;
 
@@ -50,7 +50,7 @@ public interface LoginContract {
 
     interface Model extends IModel {
 
-        Observable<BaseBean> getBaiDuInfo();
+        Observable<WeiXinBean> getBaiDuInfo();
 
     }
 }

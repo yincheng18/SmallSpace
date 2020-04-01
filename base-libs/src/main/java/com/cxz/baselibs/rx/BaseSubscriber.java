@@ -53,14 +53,14 @@ public abstract class BaseSubscriber<T extends BaseBean> extends ResourceSubscri
     @Override
     public void onNext(T t) {
         mView.hideLoading();
-        if (t.getCode() == HttpStatus.SUCCESS) {
+        if (t.getHttpCode() == HttpStatus.SUCCESS) {
             onSuccess(t);
-        } else if (t.getCode() == HttpStatus.TOKEN_INVALID) {
+        } else if (t.getHttpCode() == HttpStatus.TOKEN_INVALID) {
             // TODO 处理 token 过期
         } else {
             onError(t);
-            if (!t.getMessage().isEmpty()) {
-                mView.showDefaultMsg(t.getMessage());
+            if (!t.getHttpMessage().isEmpty()) {
+                mView.showDefaultMsg(t.getHttpMessage());
             }
         }
     }

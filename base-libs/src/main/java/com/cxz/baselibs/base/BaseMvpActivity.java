@@ -5,6 +5,7 @@ import android.os.Bundle;
 import com.cxz.baselibs.mvp.BasePresenter;
 import com.cxz.baselibs.mvp.IView;
 import com.cxz.baselibs.widget.CustomToast;
+import com.cxz.baselibs.widget.LoadingDialog;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.trello.rxlifecycle2.android.ActivityEvent;
 
@@ -20,22 +21,31 @@ public abstract class BaseMvpActivity<P extends BasePresenter> extends BaseActiv
 
     protected abstract P createPresenter();
 
+    private LoadingDialog loadingDialog;
+
     @Override
     protected void initView(Bundle savedInstanceState) {
         mPresenter = createPresenter();
         if (mPresenter != null) {
             mPresenter.attachView(this);
         }
+
+        loadingDialog=new LoadingDialog.Builder(this)
+                .setCancelable(false)
+                .setCancelOutside(false)
+                .setMessage("加载中")
+                .setIsShowMessage(true)
+                .create();
     }
 
     @Override
     public void showLoading() {
-
+        loadingDialog.show();
     }
 
     @Override
     public void hideLoading() {
-
+        loadingDialog.hide();
     }
 
     @Override

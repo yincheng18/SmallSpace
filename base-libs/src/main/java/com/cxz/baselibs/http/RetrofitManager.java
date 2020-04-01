@@ -19,7 +19,6 @@ import javax.net.ssl.TrustManager;
 
 import io.rx_cache2.internal.RxCache;
 import io.victoralbertos.jolyglot.GsonSpeaker;
-import okhttp3.Cache;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -129,7 +128,7 @@ public class RetrofitManager {
             }
         });
         File cacheFile = new File(BaseApp.getInstance().getCacheDir(), "cache");
-        Cache cache = new Cache(cacheFile, 1024 * 1024 * 50);// 50M 缓存大小
+//        Cache cache = new Cache(cacheFile, 1024 * 1024 * 50);// 50M 缓存大小
 
         HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
         if (BuildConfig.DEBUG) {

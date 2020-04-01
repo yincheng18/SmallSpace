@@ -12,7 +12,6 @@ import android.widget.TextView;
 
 import com.cxz.baselibs.base.BaseMvpActivity;
 import com.cxz.baselibs.utils.StatusBarUtil;
-import com.cxz.baselibs.widget.LoadingDialog;
 import com.cxz.baselibs.widget.MyTextWatch;
 import com.graduate.SmallSpace.R;
 import com.graduate.SmallSpace.activity.MainActivity;
@@ -36,7 +35,7 @@ public class LoginActivity extends BaseMvpActivity<LoginPresenter> implements Lo
     @BindView(R.id.clearIv)
     ImageView clearIv;
 
-    private LoadingDialog loadingDialog;
+
 
     @Override
     protected LoginPresenter createPresenter() {
@@ -48,12 +47,7 @@ public class LoginActivity extends BaseMvpActivity<LoginPresenter> implements Lo
         super.initView(savedInstanceState);
         StatusBarUtil.setAndroidNativeLightStatusBar(this, true);
 
-        loadingDialog=new LoadingDialog.Builder(this)
-                .setCancelable(false)
-                .setCancelOutside(false)
-                .setMessage("加载中")
-                .setIsShowMessage(true)
-                .create();
+
     }
 
     @Override
@@ -133,18 +127,6 @@ public class LoginActivity extends BaseMvpActivity<LoginPresenter> implements Lo
                 }
                 break;
         }
-    }
-
-    @Override
-    public void showLoading() {
-        super.showLoading();
-        loadingDialog.show();
-    }
-
-    @Override
-    public void hideLoading() {
-        super.hideLoading();
-        loadingDialog.hide();
     }
 
     @Override
