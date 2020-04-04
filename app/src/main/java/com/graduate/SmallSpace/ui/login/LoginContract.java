@@ -4,9 +4,6 @@ package com.graduate.SmallSpace.ui.login;
 import com.cxz.baselibs.mvp.IModel;
 import com.cxz.baselibs.mvp.IPresenter;
 import com.cxz.baselibs.mvp.IView;
-import com.graduate.SmallSpace.bean.WeiXinBean;
-
-import io.reactivex.Observable;
 
 
 public interface LoginContract {
@@ -31,11 +28,6 @@ public interface LoginContract {
     interface Presenter extends IPresenter<View> {
 
         /**
-         * 测试
-         */
-        void getBaiDu();
-
-        /**
          * 账号字符串检测
          *
          * @param accountStr     账号
@@ -49,8 +41,6 @@ public interface LoginContract {
     }
 
     interface Model extends IModel {
-
-        Observable<WeiXinBean> getBaiDuInfo();
 
     }
 }

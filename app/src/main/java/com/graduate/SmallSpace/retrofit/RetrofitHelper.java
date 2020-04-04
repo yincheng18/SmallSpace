@@ -8,6 +8,6 @@ public class RetrofitHelper {
      * 获取 RetrofitService
      */
     public static SmallSpaceService getRetrofitService() {
-        return RetrofitManager.getInstance().obtainRetrofitService(SmallSpaceService.url, SmallSpaceService.class);
+        return RetrofitManager.getInstance().obtainRetrofitService(SmallSpaceService.URL, SmallSpaceService.class);
     }
 }

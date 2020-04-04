@@ -2,13 +2,12 @@ package com.cxz.baselibs.rx;
 
 import com.cxz.baselibs.app.BaseApp;
 import com.cxz.baselibs.bean.BaseBean;
+import com.cxz.baselibs.http.HttpStatus;
 import com.cxz.baselibs.http.exception.ExceptionHandle;
 import com.cxz.baselibs.mvp.IView;
 import com.cxz.baselibs.utils.NetworkUtil;
 
 import io.reactivex.observers.ResourceObserver;
-
-import static com.cxz.baselibs.http.HttpStatus.SUCCESS;
 
 /**
  * @author chenxz
@@ -54,11 +53,16 @@ public abstract class BaseObserver<T extends BaseBean> extends ResourceObserver<
     @Override
     public void onNext(T t) {
         mView.hideLoading();
-        if (t.getHttpCode() == SUCCESS) {
+        if (t.getCode() == HttpStatus.SUCCESS) {
             onSuccess(t);
-        }else{
+        } else {
+            //TODO token到期
+            if (t.getCode() == HttpStatus.TOKEN_INVALID) {
+                mView.tokenTerminate();
+                return;
+            }
             onError(t);
-            mView.showErrorMsg(t.getHttpMessage());
+            mView.showErrorMsg(t.getMessage());
         }
     }
 

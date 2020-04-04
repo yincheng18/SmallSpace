@@ -9,26 +9,27 @@ import java.io.Serializable;
  */
 public class BaseBean<T> implements Serializable {
 
-    private int httpCode;
 
-    private String httpMessage;
+    private int code;
+
+    private String message;
 
     private T data;
 
-    public int getHttpCode() {
-        return httpCode;
+    public int getCode() {
+        return code;
     }
 
-    public void setHttpCode(int httpCode) {
-        this.httpCode = httpCode;
+    public void setCode(int code) {
+        this.code = code;
     }
 
-    public String getHttpMessage() {
-        return httpMessage;
+    public String getMessage() {
+        return message;
     }
 
-    public void setHttpMessage(String httpMessage) {
-        this.httpMessage = httpMessage;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public T getData() {

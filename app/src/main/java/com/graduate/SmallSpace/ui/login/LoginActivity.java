@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.cxz.baselibs.base.BaseMvpActivity;
 import com.cxz.baselibs.utils.StatusBarUtil;
+import com.cxz.baselibs.widget.LoadingDialog;
 import com.cxz.baselibs.widget.MyTextWatch;
 import com.graduate.SmallSpace.R;
 import com.graduate.SmallSpace.activity.MainActivity;
@@ -61,15 +62,16 @@ public class LoginActivity extends BaseMvpActivity<LoginPresenter> implements Lo
                 .subscribe(new Consumer<Boolean>() {
                     @Override
                     public void accept(Boolean aBoolean) throws Exception {
-                        if (aBoolean) {
-                            // TODO 允许
-                            showDefaultMsg("已允许");
-                        } else {
-                            // TODO 未允许
-                            showDefaultMsg("未允许");
-                        }
+
                     }
                 }));
+
+        new LoadingDialog.Builder(this)
+                .setCancelable(false)
+                .setCancelOutside(false)
+                .setMessage("加载中")
+                .setIsShowMessage(true)
+                .create().show();
     }
 
     @Override
@@ -93,8 +95,7 @@ public class LoginActivity extends BaseMvpActivity<LoginPresenter> implements Lo
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.registerTv:
-//                showMsg("点击了注册");
-                mPresenter.getBaiDu();
+
                 break;
             case R.id.clearIv:
                 accountEt.setText("");

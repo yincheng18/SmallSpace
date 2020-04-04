@@ -11,4 +11,16 @@
         <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
         <item name="android:backgroundDimEnabled">true</item>
     </style>
+
+    <declare-styleable name="ActivityIndicatorView">
+        <!--  菊花颜色  -->
+        <attr name="color" format="color" />
+        <!--  开始角度  -->
+        <attr name="startAngle" format="integer" />
+        <!--  线条宽度  -->
+        <attr name="strokeWidth" format="dimension" />
+        <!--  是否自动开始  -->
+        <attr name="isAutoStart" format="boolean" />
+    </declare-styleable>
+
 </resources>

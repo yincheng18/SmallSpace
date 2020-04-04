@@ -1,5 +1,6 @@
 package com.cxz.baselibs.base;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.cxz.baselibs.mvp.BasePresenter;
@@ -39,8 +40,22 @@ public abstract class BaseMvpActivity<P extends BasePresenter> extends BaseActiv
     }
 
     @Override
+    public void tokenTerminate() {
+        Intent intent_login = new Intent();
+        intent_login.setAction("android.intent.action.MAIN");
+        intent_login.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); //关键的一句，将新的activity置为栈顶
+        startActivity(intent_login);
+        finish();
+    }
+
+    @Override
     public void showLoading() {
         loadingDialog.show();
+    }
+
+    @Override
+    protected boolean useEventBus() {
+        return true;
     }
 
     @Override

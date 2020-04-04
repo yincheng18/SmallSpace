@@ -1,5 +1,6 @@
 package com.cxz.baselibs.base;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -30,6 +31,11 @@ public abstract class BaseMvpFragment<P extends IPresenter> extends BaseLazyFrag
         if (mPresenter != null) {
             mPresenter.attachView(this);
         }
+    }
+
+    @Override
+    public void tokenTerminate() {
+
     }
 
     @Override

@@ -40,6 +40,11 @@ public interface IView {
     void showErrorMsg(String errorMsg);
 
     /**
+     * token到期
+     */
+    void tokenTerminate();
+
+    /**
      * 绑定生命周期
      * @return
      */
